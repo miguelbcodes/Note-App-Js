@@ -32,3 +32,19 @@
 2. Remove the current note from the array
 3. Update the item from the localStorage using the array value
 4. Update the notes render
+
+## Edit Notes
+
+1. Select an item from the localStorage to store the notes
+  If the item's value is null:
+    a. Create an empty array to store the notes
+  else:
+    b. Recieve the string value from the item and convert it into an array that each element is a note
+3. Open the current note from the array into a new window
+4. Make the note text editable
+5.I If the user clicks the 'close' button:
+  a. Close the window without saving the changes
+5.II If the user clicks the 'save' button:
+  a. Update the item from the localStorage using the new text typed
+  b. Close the window
+  c. Update the notes render
