@@ -32,6 +32,7 @@ function showNotes() {
               <h5 class="card-title">Note ${index + 1}</h5>
               <p class="card-text"> ${element}</p>
               <button id=${index} onclick="deleteNote(this.id)" class="btn btn-danger">Delete Note</button>
+              <button id=${index} onclick="editNote(${index})" class="btn btn-secondary">Edit Note</button>
             </div>
           </div>`
   });
@@ -52,6 +53,20 @@ function deleteNote(index) {
     notesObj = JSON.parse(notes)
   };
   notesObj.splice(index, 1);
+  localStorage.setItem('notes', JSON.stringify(notesObj));
+  showNotes();
+};
+
+// Editing the note
+function editNote(index) {
+  let notes = localStorage.getItem('notes');
+  if (notes == null) {
+    notesObj = [];
+  } else {
+    notesObj = JSON.parse(notes)
+  };
+  let newText = prompt('Enter the new note:', notesObj[index])
+  notesObj[index] = newText
   localStorage.setItem('notes', JSON.stringify(notesObj));
   showNotes();
 };
